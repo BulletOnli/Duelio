@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&family=Black+Han+Sans&family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;700;800;900&family=Press+Start+2P&family=Roboto+Mono:wght@400;500;600;700&family=Shrikhand&family=Silkscreen&display=swap');
+$bgColor: #212329;
+$lightBg: #FF7116;
+//9F4234
+
+%skills {
+    .skills {
+        width: 110px;
+        height: 100px;
+        background-color: $lightBg;
+        border: 2px solid black;
+        border-radius: 12px;
+        margin: 1.2rem 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
+
+        img {
+            width: 50px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+    }
+}
+
+%playerContainer {
+    width: 14rem;
+    height: 17rem;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: $lightBg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(/images/mainBg.webp) no-repeat center;
+    background-size: cover;
+}
+
+.logo {
+    position: absolute;
+    color: #FFB702;
+    top: 1rem;
+    left: 2.5rem;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+}
+
+.gameContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+
+    .versus {
+        width: 90px;
+        position: absolute;
+        top: 2rem;
+    }
+
+    #heroContainer {
+        @extend %playerContainer;
+        margin-right: 9rem;
+    }
+
+    #villainContainer {
+        @extend %playerContainer;
+        margin-left: 9rem;
+    }
+
+    .image {
+        width: 10rem;
+        border: 2px solid black;
+        border-radius: 12px;
+        margin: 20px 0 0 0;
+    }
+
+    .player {
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 3px 0 0 0;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 2px;
+    }
+
+    .health {
+        font-size: 1.2rem;
+    }
+
+    #playerOneAttack {
+        @extend %skills;
+        position: absolute;
+        bottom: 0;
+        left: 34%;
+    }
+
+    #playerTwoAttack {
+        @extend %skills;
+        position: absolute;
+        bottom: 0;
+        right: 34%;
+    }
+}
+
+.skillSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .leftSection,
+    .rightSection {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+
+        @extend %skills;
+    }
+
+    .fightBtn {
+        background-color: transparent;
+        border: none;
+
+        img {
+            width: 120px;
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.06;
+            }
+    
+            &:active {
+                scale: 1;
+            }
+        }
+
+        
+    }
+}
+
+.winnerSection {
+    width: 20rem;
+    height: 25rem;
+    background-color: transparent;
+    border: 2px solid #F38D1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+
+    .winnerCrown {
+        width: 100px;
+        position: absolute;
+        left: -3.5rem;
+        top: -3.3rem;
+        z-index: 1;
+        transform: rotate(-45deg);
+    }
+
+    .header {
+        font-size: 3rem;
+        font-weight: 900;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 2px;
+        margin: 5px 0 2.5rem 0;
+        color: #F38D1E;
+    }
+
+    .winnerImage {
+        width: 10rem;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+
+    .winnerName {
+        font-size: 2.3rem;
+        font-weight: 900;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 3px;
+        margin-top: 5px;
+    }
+
+    .playerAgain {
+        width: 4rem;
+        position: absolute;
+        bottom: -2.5rem;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.1;
+        }
+    }
+
+    .tombstone {
+        width: 6rem;
+        margin-top: 4rem;
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    
+    small {
+        color: #F38D1E;
+        margin-bottom: 5px;
+    }
+
+    a {
+        font-size: 18px;
+        color: #F38D1E;
+        margin: 0 4px;
+
+        i:hover {
+            scale: 1.1;
+        }
+    }
+}
